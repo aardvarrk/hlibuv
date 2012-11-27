@@ -13,7 +13,7 @@ foreign import ccall unsafe "uv_loop_new" c_uv_loop_new :: IO (Ptr a)
 foreign import ccall unsafe "uv_default_loop" c_uv_default_loop :: IO (Ptr a)
 foreign import ccall unsafe "uv_run" c_uv_run :: Ptr a -> IO CInt
 
-data Loop = Loop (Ptr CInt)
+data Loop = Loop (Ptr ())
 
 -- | Get the default loop.
 --
