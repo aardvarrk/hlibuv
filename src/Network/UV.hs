@@ -8,10 +8,16 @@ module Network.UV
 
 import           Foreign.C
 import           Foreign.Ptr
+import           Network.UV.TCP
 
-foreign import ccall unsafe "uv_loop_new" c_uv_loop_new :: IO (Ptr a)
-foreign import ccall unsafe "uv_default_loop" c_uv_default_loop :: IO (Ptr a)
-foreign import ccall unsafe "uv_run" c_uv_run :: Ptr a -> IO CInt
+foreign import ccall unsafe "uv_loop_new" c_uv_loop_new
+    :: IO (Ptr a)
+
+foreign import ccall unsafe "uv_default_loop" c_uv_default_loop
+    :: IO (Ptr a)
+
+foreign import ccall unsafe "uv_run" c_uv_run
+    :: Ptr a -> IO CInt
 
 data Loop = Loop (Ptr ())
 
