@@ -1,0 +1,3 @@
+[submodule "src/cbits/libuv"]
+	path = src/cbits/libuv
+	url = git://github.com/joyent/libuv.git
