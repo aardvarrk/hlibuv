@@ -1,7 +1,7 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
 module Network.UV.TCP
 ( TCPWatcher
-, createWatcher
+, createTCPWatcher
 ) where
 
 import           Foreign.C
@@ -20,8 +20,8 @@ foreign import ccall unsafe "uv_listen" c_uv_listen
     :: Ptr () -> CInt -> FunPtr (Ptr () -> CInt -> IO ()) -> IO CInt
 
 -- | Create a new TCP watcher.
-createWatcher :: Loop -> IO TCPWatcher
-createWatcher (Loop loopPtr) = do
+createTCPWatcher :: Loop -> IO TCPWatcher
+createTCPWatcher (Loop loopPtr) = do
     handle <- c_huv_mallocTCPWatcher
     c_uv_tcp_init loopPtr handle
     return $ TCPWatcher handle
